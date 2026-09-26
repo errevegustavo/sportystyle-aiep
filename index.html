@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SportyStyle - Tienda Deportiva</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>SportyStyle</h1>
+
+        <div id="auth-section">
+            <span id="mensaje-bienvenida"></span>
+
+            <button id="btn-login">Iniciar Sesión</button>
+
+            <button id="btn-logout" style="display: none;">
+                Cerrar Sesión
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Catálogo -->
+        <section id="catalogo">
+            <h2>Nuestros Productos</h2>
+
+            <div class="grid-productos">
+
+                <!-- Producto 1 -->
+                <div class="tarjeta-producto">
+                    <img
+                        src="img/camiseta.jpg"
+                        alt="Camiseta Deportiva"
+                    >
+
+                    <h3>Camiseta Entrenamiento</h3>
+
+                    <p>
+                        Camiseta deportiva y casual. Ideal para entrenamientos
+                        y actividades cotidianas.
+                    </p>
+
+                    <p class="precio">$15.000</p>
+
+                    <button
+                        class="btn-agregar"
+                        data-nombre="Camiseta Entrenamiento"
+                        data-precio="15000"
+                    >
+                        Agregar al carrito
+                    </button>
+                </div>
+
+
+                <!-- Producto 2 -->
+                <div class="tarjeta-producto">
+                    <img
+                        src="img/pantalones.jpg"
+                        alt="Pantalón Deportivo"
+                    >
+
+                    <h3>Pantalón Deportivo</h3>
+
+                    <p>
+                        Pantalón deportivo de entrenamiento y uso casual.
+                    </p>
+
+                    <p class="precio">$25.000</p>
+
+                    <button
+                        class="btn-agregar"
+                        data-nombre="Pantalón Deportivo"
+                        data-precio="25000"
+                    >
+                        Agregar al carrito
+                    </button>
+                </div>
+
+
+                <!-- Producto 3 -->
+                <div class="tarjeta-producto">
+                    <img
+                        src="img/accesorio.jpg"
+                        alt="Botella de Agua"
+                    >
+
+                    <h3>Botella Térmica 1L</h3>
+
+                    <p>
+                        Botella térmica ideal para mantener tu agua fresca
+                        durante tu entrenamiento.
+                    </p>
+
+                    <p class="precio">$7.000</p>
+
+                    <button
+                        class="btn-agregar"
+                        data-nombre="Botella Térmica 1L"
+                        data-precio="7000"
+                    >
+                        Agregar al carrito
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Carrito -->
+        <section id="seccion-carrito">
+            <h2>Tu Carrito</h2>
+
+            <ul id="lista-carrito">
+                <!-- Los productos se agregarán mediante JavaScript -->
+            </ul>
+
+            <h3>
+                Total: $<span id="total-carrito">0</span>
+            </h3>
+        </section>
+
+
+        <!-- Checkout -->
+        <section id="seccion-checkout">
+            <h2>Datos de Envío</h2>
+
+            <form id="formulario-pago">
+
+                <!-- Nombre -->
+                <label for="input-nombre">
+                    Nombre Completo:
+                </label>
+
+                <input
+                    type="text"
+                    id="input-nombre"
+                    required
+                >
+
+
+                <!-- Dirección -->
+                <label for="input-direccion">
+                    Dirección de envío:
+                </label>
+
+                <input
+                    type="text"
+                    id="input-direccion"
+                    required
+                >
+
+
+                <!-- Correo -->
+                <label for="input-correo">
+                    Correo Electrónico:
+                </label>
+
+                <input
+                    type="email"
+                    id="input-correo"
+                    required
+                >
+
+
+                <!-- Teléfono -->
+                <label for="input-telefono">
+                    Teléfono (+569):
+                </label>
+
+                <input
+                    type="tel"
+                    id="input-telefono"
+                    inputmode="numeric"
+                    pattern="[0-9]{8}"
+                    maxlength="8"
+                    placeholder="12345678"
+                    required
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 8)"
+                >
+
+
+                <!-- Botón de compra -->
+                <button
+                    type="submit"
+                    id="btn-comprar"
+                >
+                    CONFIRMAR COMPRA
+                </button>
+
+            </form>
+
+
+            <!-- Mensaje de éxito -->
+            <div
+                id="mensaje-exito"
+                style="display: none; color: green; font-weight: bold;"
+            >
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Auth0 -->
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.1/auth0-spa-js.production.js"></script>
+
+    <!-- JavaScript de la tienda -->
+    <script src="app.js"></script>
+
+</body>
+</html>
+
